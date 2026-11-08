@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Taman Lily untuk Dedek</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#fff5f8;--bg2:#ffe3ec;--card:#ffffff;--ink:#4a2a38;--soft:#8a5a6c;--pink:#e8658f;--line:#f3c6d6;--glow:#ffd0e0}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#241520;--bg2:#331c2b;--card:#3a2232;--ink:#ffe9f1;--soft:#e5b3c7;--pink:#ff86aa;--line:#5a3348;--glow:#5a3348}}
+:root[data-theme="dark"]{--bg:#241520;--bg2:#331c2b;--card:#3a2232;--ink:#ffe9f1;--soft:#e5b3c7;--pink:#ff86aa;--line:#5a3348;--glow:#5a3348}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);font-family:"Quicksand","Nunito",system-ui,sans-serif;line-height:1.7;overflow-x:hidden}
+section{max-width:980px;margin:0 auto;padding:56px 20px}
+h1,h2{font-family:Georgia,"Times New Roman",serif;margin:0 0 12px}
+h1{font-size:clamp(34px,8vw,60px);line-height:1.15}
+h2{font-size:clamp(26px,5vw,38px);text-align:center}
+.sub{text-align:center;color:var(--soft);max-width:620px;margin:0 auto 28px}
+.hero{text-align:center;padding-top:80px;min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.hero .big{width:min(260px,62vw);animation:sway 5s ease-in-out infinite}
+@keyframes sway{50%{transform:rotate(6deg) scale(1.04)}}
+.btn{border:0;background:var(--pink);color:#fff;font:inherit;font-weight:700;padding:12px 24px;border-radius:999px;cursor:pointer;box-shadow:0 6px 18px var(--glow);transition:transform .2s}
+.btn:hover{transform:translateY(-2px) scale(1.03)}
+.btn.ghost{background:transparent;color:var(--pink);border:2px solid var(--pink);box-shadow:none}
+.letter{background:var(--card);border:2px dashed var(--line);border-radius:24px;padding:28px 24px;box-shadow:0 10px 30px var(--glow)}
+.letter p{margin:0 0 14px;font-size:17px}
+.letter .sig{text-align:right;font-weight:700;color:var(--pink);margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:18px;text-align:center;transition:transform .25s,box-shadow .25s;position:relative}
+.card:hover{transform:translateY(-6px);box-shadow:0 14px 30px var(--glow)}
+.card.on{border-color:var(--pink);box-shadow:0 0 0 3px var(--glow)}
+.card svg{width:140px;height:140px}
+.card h3{margin:6px 0 0;font-size:20px;font-family:Georgia,serif}
+.latin{font-style:italic;color:var(--soft);font-size:13px;margin:0 0 8px}
+.card p{font-size:14.5px;margin:6px 0}
+.mamas{color:var(--pink);font-weight:700}
+.pick{margin-top:8px;font-size:14px;padding:8px 16px}
+.bouquet{background:var(--card);border:2px solid var(--line);border-radius:24px;padding:24px;text-align:center;min-height:200px}
+#bq{display:flex;flex-wrap:wrap;justify-content:center;gap:2px;margin:12px 0}
+#bq svg{width:74px;height:74px;animation:pop .4s}
+@keyframes pop{from{transform:scale(0)}}
+.cnt{font-weight:700;color:var(--pink);font-size:20px}
+.pj{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.pj li{background:var(--card);border-left:6px solid var(--pink);border-radius:14px;padding:14px 18px}
+.end{text-align:center}
+.petal{position:fixed;top:-30px;width:12px;height:16px;border-radius:70% 0 70% 0;background:var(--pink);opacity:.55;pointer-events:none;animation:fall linear infinite;z-index:5}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg)}}
+@media (prefers-reduced-motion:reduce){.petal,.hero .big{animation:none}.petal{display:none}}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,40px);background:var(--pink);color:#fff;padding:12px 22px;border-radius:999px;font-weight:700;opacity:0;transition:.4s;z-index:10;max-width:90vw;text-align:center}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+.heart{position:fixed;font-size:26px;pointer-events:none;animation:up 1.6s forwards;z-index:9}
+@keyframes up{to{transform:translateY(-220px) scale(1.6);opacity:0}}
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="big" id="heroFlower"></div>
+  <p class="mamas">untuk dedek na mamas</p>
+  <h1>Taman Lily Kecil<br>untuk Dedek</h1>
+  <p class="sub">Mamas bikin taman ini khusus buat dedek, isinya bermacam-macam bunga lily. Scroll pelan-pelan ya, ada pesan kecil dari mamas di bawah.</p>
+  <button class="btn" onclick="document.getElementById('maaf').scrollIntoView()">Mulai jalan-jalan di taman</button>
+</section>
+
+<section id="maaf">
+  <h2>Ada yang mau mamas bilang dulu</h2>
+  <p class="sub">Sebelum dedek lihat bunganya, bacain ini dulu ya.</p>
+  <div class="letter">
+    <p>Dedek sayang,</p>
+    <p>Mamas minta maaf ya, soalnya mamas <b>belum bisa ngasih lily yang asli</b> buat dedek. Mamas tahu dedek suka bunga lily, dan mamas pengin banget bisa ngasih satu buket yang wangi dan cantik, bukan cuma gambar di layar kayak gini.</p>
+    <p>Tapi sementara ini, mamas bikinin dulu taman lily ini. Mamas kumpulin banyak jenis lily supaya dedek bisa lihat satu per satu, dan bisa pilih mana yang paling dedek suka.</p>
+    <p>Mamas janji, <b>nanti pasti mamas usahain</b> buat dedek. Pelan-pelan ya, dedek sabar sebentar. Mamas nggak lupa kok, dan mamas beneran mau ngasih yang asli.</p>
+    <p class="sig">Dari mamas, yang sayang banget sama dedek</p>
+  </div>
+  <p style="text-align:center;margin-top:22px"><button class="btn" id="forgive">Iya, mamas dimaafin</button></p>
+</section>
+
+<section id="taman">
+  <h2>Jenis-jenis Lily</h2>
+  <p class="sub">Ada <span id="total"></span> jenis di taman ini. Klik tombol “Petik” untuk memasukkan bunga ke buket dedek.</p>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section id="buket">
+  <h2>Buket Lily Dedek</h2>
+  <p class="sub">Bunga yang dedek petik akan muncul di sini.</p>
+  <div class="bouquet">
+    <div class="cnt"><span id="n">0</span> lily dipetik</div>
+    <div id="bq"></div>
+    <p id="bqmsg" style="color:var(--soft)">Belum ada yang dipetik, ayo pilih dulu.</p>
+    <button class="btn ghost" id="all">Petik semuanya</button>
+    <button class="btn ghost" id="clr">Kosongkan</button>
+  </div>
+</section>
+
+<section>
+  <h2>Janji Kecil Mamas</h2>
+  <p class="sub">Biar dedek tenang.</p>
+  <ul class="pj">
+    <li><b>1.</b> Mamas bakal usahain lily yang asli buat dedek, entah kapan waktunya, tapi pasti mamas usahain.</li>
+    <li><b>2.</b> Sampai hari itu tiba, taman ini boleh dedek buka kapan aja kalau dedek lagi kangen bunga.</li>
+    <li><b>3.</b> Mamas tetap sayang dedek, dan tetap berusaha jadi lebih baik buat dedek.</li>
+  </ul>
+</section>
+
+<section class="end">
+  <h2>Terima kasih sudah mampir ya, dedek</h2>
+  <p class="sub">Semoga dedek senyum pas lihat taman kecil ini. Sampai ketemu di lily yang asli nanti.</p>
+  <button class="btn" id="love">Kirim peluk buat mamas</button>
+</section>
+<div id="toast"></div>
+
+<script>
+let uid=0;
+function lily(o){
+  const id="g"+(uid++),n=o.n||6,w=o.w||17,L=o.L||46,ring=o.ring||2;
+  let s='<svg viewBox="-60 -60 120 120" aria-hidden="true"><defs><radialGradient id="'+id+'" cx="0" cy="0" r="'+L+'" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="'+o.c2+'"/><stop offset="1" stop-color="'+o.c1+'"/></radialGradient></defs>';
+  for(let r=0;r<ring;r++){
+    const l=L*(r?0.78:1),ww=w*(r?0.85:1);
+    for(let i=0;i<n;i++){
+      const a=360/n*i+(r?180/n:0);
+      s+='<g transform="rotate('+a+')"><path d="M0 0C'+(-ww)+' '+(-l*.35)+' '+(-ww*.8)+' '+(-l*.85)+' 0 '+(-l)+'C'+(ww*.8)+' '+(-l*.85)+' '+ww+' '+(-l*.35)+' 0 0Z" fill="url(#'+id+')" stroke="rgba(0,0,0,.14)" stroke-width=".6"/>';
+      if(o.stripe)s+='<path d="M0 -4V'+(-l*.7)+'" stroke="'+o.stripe+'" stroke-width="1.4" stroke-linecap="round" opacity=".7"/>';
+      if(o.spot)for(let k=0;k<4;k++)s+='<circle cx="'+(k%2?2.6:-2.6)+'" cy="'+(-8-k*6)+'" r="1.1" fill="'+o.spot+'"/>';
+      s+='</g>';
+    }
+  }
+  for(let i=0;i<6;i++){
+    const a=(i*60+30)*Math.PI/180,x=Math.sin(a)*15,y=-Math.cos(a)*15;
+    s+='<line x1="0" y1="0" x2="'+x*.93+'" y2="'+y*.93+'" stroke="#7a8f3a" stroke-width="1"/><ellipse cx="'+x+'" cy="'+y+'" rx="2.2" ry="1.2" fill="#b5651d" transform="rotate('+(i*60+30)+' '+x+' '+y+')"/>';
+  }
+  return s+'<circle r="2.2" fill="#c8d86a"/></svg>';
+}
+function calla(c1,c2,sp){
+  const id="g"+(uid++);
+  return '<svg viewBox="-60 -60 120 120" aria-hidden="true"><defs><linearGradient id="'+id+'" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="'+c2+'"/><stop offset="1" stop-color="'+c1+'"/></linearGradient></defs><path d="M0 55V20" stroke="#6b8e3a" stroke-width="3"/><path d="M0 42C-34 24-30 -26 0 -50C30 -26 34 24 0 42Z" fill="url(#'+id+')" stroke="rgba(0,0,0,.15)"/><ellipse cx="0" cy="-4" rx="4.5" ry="19" fill="'+sp+'"/></svg>';
+}
+const L=[
+ {n:"Asiatic Lily",l:"Lilium (hibrida Asiatic)",s:lily({c1:"#ff8a3c",c2:"#ffd76a",spot:"#b5481b"}),d:"Warnanya cerah: oranye, kuning, sampai pink. Hampir tidak berbau, jadi aman buat yang nggak suka wangi tajam.",m:"Ceria dan semangat, cocok buat dedek yang lagi senyum."},
+ {n:"Oriental Lily",l:"Lilium (hibrida Oriental)",s:lily({c1:"#ffd0e0",c2:"#ffffff",stripe:"#e8658f",w:20}),d:"Bunganya besar dan wanginya kuat banget. Mekar paling akhir di antara lily lainnya.",m:"Manis dan wangi, persis kayak dedek."},
+ {n:"Stargazer",l:"Lilium ‘Stargazer’",s:lily({c1:"#e0316f",c2:"#ff9bbd",spot:"#8a0f3f",w:19}),d:"Merah muda tua dengan tepi putih dan bintik-bintik. Bunganya menghadap ke atas, seperti sedang menatap bintang.",m:"Kalau lihat bintang, mamas ingat dedek."},
+ {n:"Casa Blanca",l:"Lilium ‘Casa Blanca’",s:lily({c1:"#ffffff",c2:"#eef6d8",w:21,L:48}),d:"Putih bersih, besar, dan harum. Sering dipakai untuk buket pengantin.",m:"Tulus dan bersih, kayak hati dedek."},
+ {n:"Tiger Lily",l:"Lilium lancifolium",s:lily({c1:"#f06a14",c2:"#ffb066",spot:"#2a1208",w:14}),d:"Oranye dengan bintik hitam, kelopaknya melengkung ke belakang seperti harimau yang lagi gaya.",m:"Berani dan percaya diri, dedek juga kuat."},
+ {n:"Easter Lily",l:"Lilium longiflorum",s:lily({c1:"#fbfff0",c2:"#dff0b0",w:12,L:50}),d:"Bunga putih berbentuk terompet yang anggun. Sering dijadikan simbol harapan dan awal baru.",m:"Harapan mamas buat kita berdua."},
+ {n:"Madonna Lily",l:"Lilium candidum",s:lily({c1:"#ffffff",c2:"#fff3b0",w:16}),d:"Putih murni dengan serbuk sari kuning. Lily ini sudah dikenal manusia sejak zaman dahulu.",m:"Lembut dan murni."},
+ {n:"Calla Lily",l:"Zantedeschia (bukan lily sejati)",s:calla("#ffffff","#e9f5d2","#f2c400"),d:"Namanya lily tapi sebenarnya bukan lily sejati. Bentuknya seperti gulungan satu kelopak yang elegan.",m:"Anggun, kayak dedek waktu senyum."},
+ {n:"Peace Lily",l:"Spathiphyllum (bukan lily sejati)",s:calla("#f4fff0","#6bb06b","#f7f1c8"),d:"Tanaman hias dalam ruangan dengan daun hijau mengilap dan bunga putih. Mudah dirawat.",m:"Biar hati dedek selalu damai."},
+ {n:"Daylily",l:"Hemerocallis (bukan lily sejati)",s:lily({c1:"#ff9b1a",c2:"#ffe14d",w:15,ring:2,stripe:"#c25b00"}),d:"Satu bunganya mekar cuma sehari, tapi tanamannya terus berbunga. Jadi tiap hari ada bunga baru.",m:"Tiap hari bareng dedek itu berharga."},
+ {n:"Peruvian Lily",l:"Alstroemeria",s:lily({c1:"#ff7fa8",c2:"#fff0b8",spot:"#a31650",stripe:"#ffffff",w:17,L:44}),d:"Berasal dari Amerika Selatan, kelopaknya bergaris-garis. Awet banget kalau ditaruh di vas.",m:"Awet, kayak sayangnya mamas."},
+ {n:"Teratai (Water Lily)",l:"Nymphaea",s:lily({c1:"#ffb6d0",c2:"#ffffff",n:10,w:9,L:46}),d:"Bunga yang mengapung di atas air dan sering dilihat di kolam. Mekar anggun di permukaan yang tenang.",m:"Tenang dan adem, dedek bikin mamas tenang."}
+];
+document.getElementById("heroFlower").innerHTML=lily({c1:"#ff9bbd",c2:"#ffffff",stripe:"#e8658f",w:20});
+document.getElementById("total").textContent=L.length;
+const picked=new Set(),grid=document.getElementById("grid");
+L.forEach((f,i)=>{
+  const c=document.createElement("div");c.className="card";
+  c.innerHTML=f.s+"<h3>"+f.n+"</h3><p class='latin'>"+f.l+"</p><p>"+f.d+"</p><p class='mamas'>Kata mamas: "+f.m+"</p><button class='btn pick'>Petik</button>";
+  c.querySelector(".pick").onclick=()=>{toggle(i)};
+  grid.appendChild(c);
+});
+function render(){
+  document.querySelectorAll(".card").forEach((c,i)=>{c.classList.toggle("on",picked.has(i));c.querySelector(".pick").textContent=picked.has(i)?"Sudah dipetik":"Petik"});
+  document.getElementById("n").textContent=picked.size;
+  document.getElementById("bq").innerHTML=[...picked].map(i=>L[i].s).join("");
+  document.getElementById("bqmsg").textContent=picked.size?(picked.size>=L.length?"Wah, dedek petik semuanya! Nanti pas mamas ngasih yang asli, mamas pilihin yang paling wangi ya.":"Cantik banget buketnya. Nanti kalau ada rezeki, mamas kasih yang asli ya, dedek."):"Belum ada yang dipetik, ayo pilih dulu.";
+}
+function toggle(i){picked.has(i)?picked.delete(i):picked.add(i);render()}
+document.getElementById("all").onclick=()=>{L.forEach((_,i)=>picked.add(i));render();document.getElementById("buket").scrollIntoView()};
+document.getElementById("clr").onclick=()=>{picked.clear();render()};
+function hearts(btn,txt){
+  const r=btn.getBoundingClientRect();
+  for(let i=0;i<10;i++){const h=document.createElement("span");h.className="heart";h.textContent=["💗","🌸","💕","🤍"][i%4];h.style.left=(r.left+r.width/2+(Math.random()*120-60))+"px";h.style.top=r.top+"px";document.body.appendChild(h);setTimeout(()=>h.remove(),1700)}
+  const t=document.getElementById("toast");t.textContent=txt;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),3200);
+}
+document.getElementById("forgive").onclick=e=>hearts(e.target,"Makasih ya dedek, mamas sayang dedek 💗");
+document.getElementById("love").onclick=e=>hearts(e.target,"Peluk erat buat dedek dari mamas 🤗");
+for(let i=0;i<14;i++){const p=document.createElement("i");p.className="petal";p.style.left=Math.random()*100+"vw";p.style.animationDuration=(9+Math.random()*9)+"s";p.style.animationDelay=(-Math.random()*14)+"s";document.body.appendChild(p)}
+</script>
+</body>
+</html>
